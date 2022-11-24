@@ -4,10 +4,11 @@
 //
 //  Created by Vagan Albertyan on 24.09.2022.
 //
+// 1 лабораторная работа по Защите Информации МАИ 2022
 
 import Foundation
 
-var alphabetstr: [Character] = Array("абвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+var alphabetstr: [Character] = Array("абвгдеёжзийклмнопрстуфхцчшщъыьэюяабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
 print("Введите слово для зашифровки :")
 var secretMessage = readLine()//"привет мир"
 print("Введите сдвиг:")
@@ -21,7 +22,7 @@ for i in 0 ..< message.count {
 
     if message[i] == alphabetstr[j] {
 
-      message[i] = alphabetstr[(j + Intshift1!) % 33]  // В скобках сдвиг// процент количество букв используемых в алфавите
+      message[i] = alphabetstr[(j + Intshift1!%33) ]  // В скобках сдвиг// процент количество букв используемых в алфавите
       break
     }
   }
@@ -44,14 +45,15 @@ for k in 0 ..< descrmessage.count {
 
     for m in 0 ..< alphabetstr.count {
 
-    if descrmessage[k] == alphabetstr[m] {
-        if (m - Intshift2!) % 33  >= 0  {
-          descrmessage[k] = alphabetstr[(m - Intshift2! ) % 33]
-        }
-        descrmessage[k] = alphabetstr[(m + 33 - Intshift2! ) % 33]
+        if descrmessage[k] == alphabetstr[m] {
+            descrmessage[k] = alphabetstr[(m + 33 - Intshift1!%33) ]
+            
+        //московский авиационный институт
+
       break
     }
   }
 }
 let descriptionMessageArr = String(descrmessage)
 print("Расшифрованное слово: \(descriptionMessageArr)")
+//or \(Intshift2!)
